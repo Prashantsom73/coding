@@ -1,0 +1,86 @@
+import datetime
+
+def getdate():
+    return datetime.datetime.now()
+
+def inp_name(take):
+    if take == "1":
+        food_log = input("What you want to log \n PRESS 1 for food PRESS 2 for Exercise \n")
+        if food_log == "1":
+            with open("Harry_Food.txt", "a") as q:
+                some = input()
+                q.write(f"{getdate()}, {some} \n")
+                print("successfully stored\n")
+        elif food_log == "2":
+            with open("Harry_Exercise.txt", "a") as E:
+                some = input()
+                E.write(f"{getdate()}, {some} \n")
+                print("successfully stored\n")
+        else:
+            print("wrong input")
+
+    elif take == "2":
+        food_log = input("What you want to log  press 1 for food  2 for Exercise ")
+        if food_log == "1":
+            with open("Rohan_Food.txt", "a") as q:
+                some = input()
+                q.write(f"{getdate()}, {some} \n")
+                print("successfully stored\n")
+        elif food_log == "2":
+            with open("Rohan_Exercise.txt", "a") as E:
+                some = input()
+                E.write(f"{getdate()}, {some} \n")
+                print("successfully stored\n")
+    elif take == "3":
+        food_log = input("What you want to log  press 1 for food  2 for Exercise \n")
+        if food_log == "1":
+            with open("Hammad_Food.txt", "a") as q:
+                some = input()
+                q.write(f"{getdate()}, {some} \n")
+                print("successfully stored\n")
+        elif food_log == "2":
+            with open("Hammad_Exercise.txt", "a") as E:
+                some = input()
+                E.write(f"{getdate()}, {some} \n")
+                print("successfully stored\n")
+
+def retrive_data_food(cli_inp):
+    e_f = input("what you want to retrive preess *1* for food press *2* for exercise")
+    if(e_f == "1"):
+        if(cli_inp == "1"):
+            with open("Harry_Food.txt","r") as R:
+                for items in R.readlines():
+                    print(items)
+        elif  (cli_inp == "2"):
+            with open("Rohan_Food.txt", "r") as P:
+                for items in P.readlines():
+                    print(items)
+
+        if (cli_inp == "3"):
+            with open("Hammad_Food.txt", "r") as Q:
+                for items in Q.readlines():
+                    print(items)
+
+    elif e_f == "2":
+        if (cli_inp == "1"):
+            with open("Harry_Exercise.txt", "r") as s:
+                for items in s.readlines():
+                    print(items)
+        elif (cli_inp == "2"):
+            with open("Rohan_Exercise.txt", "r") as T:
+                for items in T.readlines():
+                    print(items)
+        elif (cli_inp == "3"):
+            with open("Hammad_Exercise.txt", "r") as v:
+                for items in v.readlines():
+                    print(items)
+
+
+cli_inp = input("Enter client name  PRESS 1 for Harry PRESS 2 for Rohan PRESS 3 for Hammad:-")
+retrive = input("What you want PRESS 1 for Store  PRESS 2 for retrive ")
+if retrive == "1":
+    inp_name(cli_inp)
+elif retrive == "2":
+    retrive_data_food(cli_inp)
+else:
+    print("#######  wrong input ########")
